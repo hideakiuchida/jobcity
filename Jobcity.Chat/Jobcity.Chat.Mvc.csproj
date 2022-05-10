@@ -291,6 +291,10 @@
       <Project>{99088fad-5a78-48ba-892d-ff703b5f5eee}</Project>
       <Name>Jobcity.Chat.ApplicationLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Jobcity.Chat.Bot\Jobcity.Chat.Bot.csproj">
+      <Project>{84cb7361-e0bf-469d-afcd-0b4027726097}</Project>
+      <Name>Jobcity.Chat.Bot</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Jobcity.Chat.Domain\Jobcity.Chat.Domain.csproj">
       <Project>{1e6cbcba-352b-47c4-bd2c-f3b55ad50214}</Project>
       <Name>Jobcity.Chat.Domain</Name>

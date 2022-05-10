@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobcity.Chat.Tests", "..\Jo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Web", "1. Web", "{F89E7607-40BB-4ADD-A4C8-E7355844977B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. API", "2. API", "{D2ECF5A0-03AD-4F5F-A7D1-8207FC4A660B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Bot", "2. Bot", "{D2ECF5A0-03AD-4F5F-A7D1-8207FC4A660B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Application", "3. Application", "{2FE3E875-8084-4D85-8E14-815F54C6DE0E}"
 EndProject
@@ -24,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobcity.Chat.InfraLayer", "..\Jobcity.Chat.InfraLayer\Jobcity.Chat.InfraLayer.csproj", "{91DAF26F-1114-4D57-AE10-7655D6A6877B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobcity.Chat.Domain", "..\Jobcity.Chat.Domain\Jobcity.Chat.Domain.csproj", "{1E6CBCBA-352B-47C4-BD2C-F3B55AD50214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobcity.Chat.Bot", "..\Jobcity.Chat.Bot\Jobcity.Chat.Bot.csproj", "{84CB7361-E0BF-469D-AFCD-0B4027726097}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobcity.Chat.Bot.Client", "..\Jobcity.Chat.Bot.Client\Jobcity.Chat.Bot.Client.csproj", "{A3B81BD0-70C3-47C9-9964-06B19FB25639}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{1E6CBCBA-352B-47C4-BD2C-F3B55AD50214}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E6CBCBA-352B-47C4-BD2C-F3B55AD50214}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E6CBCBA-352B-47C4-BD2C-F3B55AD50214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84CB7361-E0BF-469D-AFCD-0B4027726097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84CB7361-E0BF-469D-AFCD-0B4027726097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84CB7361-E0BF-469D-AFCD-0B4027726097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84CB7361-E0BF-469D-AFCD-0B4027726097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3B81BD0-70C3-47C9-9964-06B19FB25639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3B81BD0-70C3-47C9-9964-06B19FB25639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3B81BD0-70C3-47C9-9964-06B19FB25639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3B81BD0-70C3-47C9-9964-06B19FB25639}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +73,8 @@ Global
 		{99088FAD-5A78-48BA-892D-FF703B5F5EEE} = {2FE3E875-8084-4D85-8E14-815F54C6DE0E}
 		{91DAF26F-1114-4D57-AE10-7655D6A6877B} = {80A409BB-40FD-4B8C-9C09-D6590027D28E}
 		{1E6CBCBA-352B-47C4-BD2C-F3B55AD50214} = {0F7E4BC7-A33F-409F-890D-686B29114761}
+		{84CB7361-E0BF-469D-AFCD-0B4027726097} = {2FE3E875-8084-4D85-8E14-815F54C6DE0E}
+		{A3B81BD0-70C3-47C9-9964-06B19FB25639} = {D2ECF5A0-03AD-4F5F-A7D1-8207FC4A660B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5E142BA2-8526-4ADD-90D3-B54755E6A56A}

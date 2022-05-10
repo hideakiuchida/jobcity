@@ -1,6 +1,4 @@
-﻿using Jobcity.Chat.Mvc.SignalRChat;
-using Microsoft.AspNet.SignalR;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(Jobcity.Chat.Mvc.Startup))]

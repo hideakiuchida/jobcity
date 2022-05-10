@@ -1,5 +1,7 @@
 using Jobcity.Chat.ApplicationLayer.Contracts;
 using Jobcity.Chat.ApplicationLayer.Implementations;
+using Jobcity.Chat.Bot.Contracts;
+using Jobcity.Chat.Bot.Implementations;
 using Jobcity.Chat.InfraLayer.Contracts;
 using Jobcity.Chat.InfraLayer.Implementations;
 using Jobcity.Chat.IoC;
@@ -35,6 +37,9 @@ namespace Jobcity.Chat.Mvc
             container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>(new HierarchicalLifetimeManager());
             container.RegisterType<AccountController>(new InjectionConstructor());
             container.RegisterType<IChatMessageRepository, ChatMessageRepository>();
+            container.RegisterType<IChatApiProxy, ChatApiProxy>();
+            container.RegisterType<IChatBotBL, ChatBotBL>();
+            container.RegisterType<IChatBotRabbitProxy, ChatBotRabbitProxy>();
             container.RegisterType<IChatMessageBL, ChatMessageBL>();
             GlobalHost.DependencyResolver.Register(typeof(IHubActivator), () => new UnityHubActivator(container));
         }
