@@ -4,6 +4,7 @@ using Jobcity.Chat.Domain;
 using Jobcity.Chat.InfraLayer.Constants;
 using Microsoft.AspNet.SignalR;
 using System;
+using System.Threading.Tasks;
 
 namespace Jobcity.Chat.Mvc.SignalRChat
 {
@@ -17,40 +18,33 @@ namespace Jobcity.Chat.Mvc.SignalRChat
             _chatBotBL = chatBotBL;
         }
 
-        public void Send(string name, string message)
+        public async Task Send(string name, string message)
         {
-            SendMessage(name, message);
+            try
+            {
+                await SendMessageAsync(name, message);
 
-            if (message.StartsWith(Commands.StockCode))
-                ProcessStockCode(message);
+                if (message.StartsWith(Commands.StockCode))
+                    await _chatBotBL.CallChatBotToGetStockCode(message);
+            }
+            catch (Exception ex)
+            {
+                await SendMessageAsync(BotMessages.Bot, ex.Message);
+            }
         }
 
-        public void SendMessage(string name, string message)
+        public async Task SendMessageAsync(string name, string message)
         {
-            var chatMessage = GetNewChatMessage(name, message);
-
-            var chatRoomMessages = _chatMessageBL.GetChatRoomMessagesAsync(chatMessage).Result;
-
-            Clients.All.refreshChatRoom(chatRoomMessages);
-        }
-
-        private void ProcessStockCode(string message)
-        {        
-            string messageResponse = _chatBotBL.CallChatBotToGetStockCode(message).Result;
-            var chatMessage = GetNewChatMessage(BotMessages.Bot, messageResponse);
-            var chatRoomMessages = _chatMessageBL.GetChatRoomMessagesAsync(chatMessage).Result;
-            Clients.All.refreshChatRoom(chatRoomMessages);
-        }
-
-        private ChatMessage GetNewChatMessage(string name, string message)
-        {
-            ChatMessage chatMessage = new ChatMessage
+            var chatMessage = new ChatMessage
             {
                 UserName = name,
                 DateTime = DateTime.Now.ToString(),
                 Message = message
             };
-            return chatMessage;
+
+            var chatRoomMessages = await _chatMessageBL.GetChatRoomMessagesAsync(chatMessage);
+
+            Clients.All.refreshChatRoom(chatRoomMessages);
         }
     }
 }

@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Constants\BotMessages.cs" />
     <Compile Include="Constants\Commands.cs" />
+    <Compile Include="Constants\RabbitMQConfiguration.cs" />
     <Compile Include="Contracts\IChatApiProxy.cs" />
     <Compile Include="Contracts\IChatBotRabbitProxy.cs" />
     <Compile Include="Contracts\IChatMessageRepository.cs" />

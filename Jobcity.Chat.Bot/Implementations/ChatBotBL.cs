@@ -1,6 +1,7 @@
 ﻿using Jobcity.Chat.Bot.Contracts;
 using Jobcity.Chat.InfraLayer.Constants;
 using Jobcity.Chat.InfraLayer.Contracts;
+using System;
 using System.Threading.Tasks;
 
 namespace Jobcity.Chat.Bot.Implementations
@@ -17,21 +18,23 @@ namespace Jobcity.Chat.Bot.Implementations
 
         public async Task<string> CallChatBotToGetStockCode(string message)
         {
-            string stockCode = message.Split('=')[1] ?? string.Empty;
-            string messageResponse = string.Empty;
+            string messageResponse;
+            string stockCode = string.Empty;
+
+            if (!string.IsNullOrEmpty(message))
+            {
+                stockCode = message.Split('=')[1] ?? stockCode;
+            }
+
             if (stockCode.Equals(Commands.AaplUsCode))
             {
                 messageResponse = await _chatApiProxy.DownloadCsv(stockCode);
+                _chatBotRabbitProxy.SendMessage(messageResponse);
             }
             else
                 messageResponse = BotMessages.StockCodeNotAvailable;
 
             return messageResponse;
-        }
-
-        public void SendMessageMQ(string message)
-        {
-            _chatBotRabbitProxy.SendMessage(message);
         }
     }
 }

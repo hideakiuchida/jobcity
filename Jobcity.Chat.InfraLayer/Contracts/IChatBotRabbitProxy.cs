@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using RabbitMQ.Client;
+using System.Threading.Tasks;
 
 namespace Jobcity.Chat.InfraLayer.Contracts
 {

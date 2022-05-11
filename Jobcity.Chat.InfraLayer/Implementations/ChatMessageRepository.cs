@@ -12,12 +12,12 @@ namespace Jobcity.Chat.InfraLayer.Implementations
 
         public async Task AddChatMessagesAsync(ChatMessage chatMessage)
         {
-            chatMessages.Add(chatMessage);
+            await Task.Run(() => chatMessages.Add(chatMessage));
         }
 
         public async Task<List<ChatMessage>> GetChatMessagesAsync()
         {
-            var last50Messages = chatMessages.OrderByDescending(x => x.DateTime).Take(50).ToList();
+            var last50Messages = await Task.Run(() => chatMessages.OrderByDescending(x => x.DateTime).Take(50).ToList());
             last50Messages = last50Messages.OrderBy(x => x.DateTime).ToList();
             return last50Messages;
         }
